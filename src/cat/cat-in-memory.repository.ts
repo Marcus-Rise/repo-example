@@ -2,18 +2,9 @@ import {ICat} from "./cat.interface";
 import {ICatRepository} from "./cat.repository-interface";
 
 export class CatInMemoryRepository implements ICatRepository {
-    private collection = [
-        {
-            name: "cat",
-            size: 5,
-            isHungry: true,
-            mew(): string {
-                return "meeeeew!";
-            }
-        }
-    ];
+    private collection: ICat[] = [];
 
-    async get(filter: { name?: string; size?: number }): Promise<ICat | null> {
+    async find(filter: { name?: string; size?: number }): Promise<ICat | null> {
         const cat =  this.collection.find((i) => {
             let res: boolean = true;
 
@@ -33,5 +24,9 @@ export class CatInMemoryRepository implements ICatRepository {
 
     async list(): Promise<ICat[]> {
         return this.collection.slice();
+    }
+
+    async save(cat: ICat): Promise<void> {
+        this.collection.push(cat);
     }
 }

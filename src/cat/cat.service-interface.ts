@@ -1,10 +1,13 @@
+import {CatEntity} from "./cat.entity";
 import {ICat} from "./cat.interface";
 
 export const CAT_SERVICE_PROVIDER = Symbol("CAT_SERVICE_PROVIDER")
 
 export interface ICatService {
-    getTheBiggest(): Promise<ICat>;
+    add(iCat: ICat): Promise<void>;
 
-    feedCatByName(name: string): Promise<ICat>;
+    getTheBiggest(): Promise<CatEntity>;
+
+    feedCatByName(name: string): Promise<CatEntity>;
 }
 

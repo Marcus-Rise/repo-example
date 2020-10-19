@@ -3,7 +3,5 @@ export interface ICat {
 
     size: number;
 
-    mew(): string;
-
     isHungry: boolean;
 }
