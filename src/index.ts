@@ -1,5 +1,5 @@
 import {CAT_SERVICE_PROVIDER, ICatService} from "./cat/cat.service-interface";
-import {container} from "./ioc/container";
+import {container} from "./ioc/container-business-mock";
 
 const catService = container.get<ICatService>(CAT_SERVICE_PROVIDER);
 
