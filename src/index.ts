@@ -7,6 +7,7 @@ catService.getTheBiggest()
     .then(async (cat) => {
         const happyCat = await catService.feedCatByName(cat.name);
 
-        console.info(happyCat.name + " has been feed");
+        console.info(`${happyCat.name} with size: ${happyCat.size} has been feed`);
+        console.log(happyCat.mew());
     })
 
